@@ -6,7 +6,7 @@ const data = {
       category: "Laptops",
       image: "/images/sony.jpg",
       price: 350,
-      countInStock: 10,
+      countInStock: 0,
       brand: "Sony",
       rating: 4.3,
       numReviews: 10,
