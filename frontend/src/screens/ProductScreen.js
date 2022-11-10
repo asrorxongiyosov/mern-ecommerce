@@ -10,6 +10,9 @@ import ListGroupItem from "react-bootstrap/esm/ListGroupItem";
 import Card from "react-bootstrap/esm/Card";
 import Button from "react-bootstrap/esm/Button";
 import { Helmet } from "react-helmet-async";
+import LoadingBox from "../components/LoadingBox";
+import MessageBox from "../components/MessageBox";
+import { getError } from "../utils";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -40,15 +43,15 @@ function ProductScreen() {
         const result = await axios.get(`/api/products/slug/${slug}`);
         dispatch({ type: "FETCH_SUCCESS", payload: result.data });
       } catch (err) {
-        dispatch({ type: "FETCH_FAIL", payload: err.message });
+        dispatch({ type: "FETCH_FAIL", payload: getError(err) });
       }
     };
     fetchData();
   }, [slug]);
   return loading ? (
-    <div>Loading...</div>
+    <LoadingBox />
   ) : error ? (
-    <div>{error}</div>
+    <MessageBox variant="danger">{error}</MessageBox>
   ) : (
     <div>
       <Row>
@@ -61,10 +64,10 @@ function ProductScreen() {
         </Col>
         <Col md={3}>
           <ListGroup variant="flush">
-                <ListGroup.Item>
-                  <Helmet>
-                    <title>{product.name}</title>
-                  </Helmet>
+            <ListGroup.Item>
+              <Helmet>
+                <title>{product.name}</title>
+              </Helmet>
               <h1>{product.name}</h1>
             </ListGroup.Item>
             <ListGroup.Item>
@@ -103,16 +106,14 @@ function ProductScreen() {
                     </Col>
                   </Row>
                 </ListGroup.Item>
-                    {product.countInStock > 0 && (
-                      <ListGroupItem>
-                        <div className="d-grid">
-                          <Button variant="primary">
-                            Add to Cart
-                          </Button>
-                        </div>
-                      </ListGroupItem>
-           )}
-                  </ListGroup>
+                {product.countInStock > 0 && (
+                  <ListGroupItem>
+                    <div className="d-grid">
+                      <Button variant="primary">Add to Cart</Button>
+                    </div>
+                  </ListGroupItem>
+                )}
+              </ListGroup>
             </Card.Body>
           </Card>
         </Col>
