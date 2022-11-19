@@ -45,7 +45,7 @@ const data = {
       slug: "hp-dragonfly-laptop",
       category: "Laptops",
       image: "/images/hp.jpg",
-      price: 3.373,
+      price: 3373,
       countInStock: 10,
       brand: "HP",
       rating: 5.0,
