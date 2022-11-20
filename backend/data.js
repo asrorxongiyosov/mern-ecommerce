@@ -1,7 +1,7 @@
 const data = {
   products: [
     {
-      _id: "1",
+      // _id: "1",
       name: "Sony Vaio",
       slug: "sony-vaio-laptop",
       category: "Laptops",
@@ -14,7 +14,7 @@ const data = {
       description: "Touch screen laptop",
     },
     {
-      _id: "2",
+      // _id: "2",
       name: "Dell Inspiron",
       slug: "dell-inspiron-laptop",
       category: "Laptops",
@@ -27,7 +27,7 @@ const data = {
       description: "Laptop for Office",
     },
     {
-      _id: "3",
+      // _id: "3",
       name: "Asus ROG",
       slug: "asus-rog-laptop",
       category: "Laptops",
@@ -40,7 +40,7 @@ const data = {
       description: "Laptop for gaming",
     },
     {
-      _id: "4",
+      // _id: "4",
       name: "HP Dragonfly",
       slug: "hp-dragonfly-laptop",
       category: "Laptops",
