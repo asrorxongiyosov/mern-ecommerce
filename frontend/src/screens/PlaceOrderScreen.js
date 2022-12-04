@@ -41,8 +41,8 @@ export default function PlaceOrderScreen() {
     cart.cartItems.reduce((a, c) => a + c.quantity * c.price, 0)
   );
   cart.shippingPrice = cart.itemsPrice > 100 ? round2(0) : round2(10);
-  cart.taxPrice = round2(0.15 * cart.itemsPrice);
-  cart.totalPrice = cart.itemsPrice + cart.shippingPrice + cart.taxPrice;
+  cart.discountPrice = round2(0.05 * cart.itemsPrice);
+  cart.totalPrice = cart.itemsPrice + cart.shippingPrice - cart.discountPrice;
 
   const placeOrderHandler = async () => {
     try {
@@ -56,7 +56,7 @@ export default function PlaceOrderScreen() {
           paymentMethod: cart.paymentMethod,
           itemsPrice: cart.itemsPrice,
           shippingPrice: cart.shippingPrice,
-          taxPrice: cart.taxPrice,
+          discountPrice: cart.discountPrice,
           totalPrice: cart.totalPrice,
         },
         {
@@ -156,8 +156,10 @@ export default function PlaceOrderScreen() {
                 </ListGroup.Item>
                 <ListGroup.Item>
                   <Row>
-                    <Col>Tax</Col>
-                    <Col>${cart.taxPrice.toFixed(2)}</Col>
+                    <Col>
+                      Discount <strong>5%</strong>
+                    </Col>
+                    <Col>${cart.discountPrice.toFixed(2)}</Col>
                   </Row>
                 </ListGroup.Item>
                 <ListGroup.Item>

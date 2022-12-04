@@ -5,7 +5,6 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import CheckoutSteps from "../components/CheckoutSteps";
 import { Store } from "../Store";
-import { FaBeer } from "react-icons/fa";
 
 export default function PaymentMethodScreen() {
   const navigate = useNavigate();
@@ -15,7 +14,7 @@ export default function PaymentMethodScreen() {
   } = state;
 
   const [paymentMethodName, setPaymentMethod] = useState(
-    paymentMethod || "UzCard"
+    paymentMethod || "Cash"
   );
 
   useEffect(() => {
@@ -41,16 +40,6 @@ export default function PaymentMethodScreen() {
           <div className="mb-3">
             <Form.Check
               type="radio"
-              id="UzCard"
-              label="Uz Card"
-              value="UzCard"
-              checked={paymentMethodName === "UzCard"}
-              onChange={(e) => setPaymentMethod(e.target.value)}
-            />
-          </div>
-          <div className="mb-3">
-            <Form.Check
-              type="radio"
               id="Cash"
               label="Cash"
               value="Cash"
@@ -58,6 +47,16 @@ export default function PaymentMethodScreen() {
               onChange={(e) => setPaymentMethod(e.target.value)}
             />
           </div>
+          {/* <div className="mb-3">
+            <Form.Check
+              type="radio"
+              id="Stripe"
+              label="Stripe"
+              value="Stripe"
+              checked={paymentMethodName === "Stripe"}
+              onChange={(e) => setPaymentMethod(e.target.value)}
+            />
+          </div> */}
           <div className="mb-3">
             <Button type="submit">Continue</Button>
           </div>
