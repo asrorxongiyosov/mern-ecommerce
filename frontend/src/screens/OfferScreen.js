@@ -24,7 +24,7 @@ const reducer = (state, action) => {
   }
 };
 
-function HomeScreen() {
+function OfferScreen() {
   const [{ loading, error, products }, dispatch] = useReducer(logger(reducer), {
     products: [],
     loading: true,
@@ -64,27 +64,8 @@ function HomeScreen() {
           ))}
         </Row>
       )}
-      <div className="carousel">
-        <Carousel variant="dark" controls={false} indicators={false}>
-          <Carousel.Item interval={5000}>
-            <img
-              className="carousel-img"
-              src="images/green.jpeg"
-              alt="First slide"
-            />
-          </Carousel.Item>
-          <Carousel.Item interval={5000}>
-            <img
-              className="carousel-img"
-              src="images/green.jpeg"
-              alt="First slide"
-            />
-          </Carousel.Item>
-
-        </Carousel>
-      </div>
     </div>
   );
 }
 
-export default HomeScreen;
+export default OfferScreen;
