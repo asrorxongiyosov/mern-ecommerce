@@ -56,16 +56,16 @@ productRouter.put(
   })
 );
 productRouter.delete(
-  "/:id",
+  '/:id',
   isAuth,
   isAdmin,
   expressAsyncHandler(async (req, res) => {
     const product = await Product.findById(req.params.id);
     if (product) {
       await product.remove();
-      res.send({ message: "Product Deleted" });
+      res.send({ message: 'Product Deleted' });
     } else {
-      res.status(404).send({ message: "Product Not Found" });
+      res.status(404).send({ message: 'Product Not Found' });
     }
   })
 );

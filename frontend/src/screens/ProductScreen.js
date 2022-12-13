@@ -121,7 +121,6 @@ function ProductScreen() {
                     <Row>
                       <Col>Status:</Col>
                       <Col>
-                        $
                         {product.countInStock > 0 ? (
                           <Badge bg="success">In Stock</Badge>
                         ) : (
@@ -145,8 +144,8 @@ function ProductScreen() {
           </Col>
         </Row>
       </div>
-          <div>
-            <h3>Featured Products</h3>
+      <div>
+        <h3>Featured Products</h3>
         <OfferScreen />
       </div>
     </div>
