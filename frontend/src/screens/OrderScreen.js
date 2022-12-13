@@ -73,6 +73,7 @@ export default function OrderScreen() {
     loadingPay: false,
   });
 
+
   useEffect(() => {
     const fetchOrder = async () => {
       try {
@@ -173,7 +174,7 @@ export default function OrderScreen() {
                 <ListGroup.Item>
                   <Row>
                     <Col>Items</Col>
-                    <Col>${order.itemsPrice.toFixed(2)}</Col>
+                    <Col>${order.itemsPrice}</Col>
                   </Row>
                 </ListGroup.Item>
                 <ListGroup.Item>
@@ -187,7 +188,7 @@ export default function OrderScreen() {
                     <Col>
                       Discount <strong>5%</strong>
                     </Col>
-                    <Col>${order.discountPrice.toFixed(2)}</Col>
+                    <Col>${order.discountPrice}</Col>
                   </Row>
                 </ListGroup.Item>
                 <ListGroup.Item>
@@ -196,7 +197,7 @@ export default function OrderScreen() {
                       <strong> Order Total</strong>
                     </Col>
                     <Col>
-                      <strong>${order.totalPrice.toFixed(2)}</strong>
+                      <strong>${order.totalPrice}</strong>
                     </Col>
                   </Row>
                 </ListGroup.Item>
