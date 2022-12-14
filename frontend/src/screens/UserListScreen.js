@@ -67,7 +67,7 @@ export default function UserListScreen() {
               <th>NAME</th>
               <th>EMAIL</th>
               <th>IS ADMIN</th>
-              <th>ACTIONS</th>
+              {/* <th>ACTIONS</th> */}
             </tr>
           </thead>
           <tbody>

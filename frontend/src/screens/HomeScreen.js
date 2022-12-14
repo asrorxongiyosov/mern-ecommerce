@@ -48,41 +48,41 @@ function HomeScreen() {
 
   return (
     <div className="products">
+      <div className="carousel">
+        <Carousel variant="dark" controls={false} indicators={false}>
+          <Carousel.Item interval={5000}>
+            <img
+              className="carousel-img"
+              src="images\1.jpg"
+              alt="First slide"
+            />
+          </Carousel.Item>
+          <Carousel.Item interval={5000}>
+            <img
+              className="carousel-img"
+              src="images/2.jpg"
+              alt="First slide"
+            />
+          </Carousel.Item>
+        </Carousel>
+      </div>
       <Helmet>
-        <title>techshop</title>
+        <title>studentDoc</title>
       </Helmet>
+      <h2>Featured Products</h2>
       {loading ? (
         <LoadingBox />
       ) : error ? (
         <MessageBox variant="danger">{error}</MessageBox>
       ) : (
         <Row>
-          {products.map((product) => (
+          {products.slice(0, 4).map((product) => (
             <Col key={product.slug} sm={6} md={4} lg={3} className="mb-3">
               <Product product={product}></Product>
             </Col>
           ))}
         </Row>
       )}
-      <div className="carousel">
-        <Carousel variant="dark" controls={false} indicators={false}>
-          <Carousel.Item interval={5000}>
-            <img
-              className="carousel-img"
-              src="images/green.jpeg"
-              alt="First slide"
-            />
-          </Carousel.Item>
-          <Carousel.Item interval={5000}>
-            <img
-              className="carousel-img"
-              src="images/green.jpeg"
-              alt="First slide"
-            />
-          </Carousel.Item>
-
-        </Carousel>
-      </div>
     </div>
   );
 }
